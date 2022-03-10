@@ -3,5 +3,5 @@ praw
 dnspython
 PyNaCl
 async-timeout
-googletrans
+googletrans==3.1.0a0
 gnews

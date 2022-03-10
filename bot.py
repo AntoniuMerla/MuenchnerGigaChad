@@ -100,17 +100,17 @@ async def listofcommands(message):
     result = "List of commands: \n"
     for s in commands:
         result = result + s + "\n"
-        if s == ".translate":
+        if s == "/translate":
             result = result + "(i.e.: .translate en Arbeiterunfallverischerungsgesetz OR .translate de the backer is not here)" + "\n"
     await message.channel.send(result)
 
 
 commands = {
-    '.sayhi': sayhi,
-    '.bayernmuenchenfacts': bayernmuenchenfacts,
-    '.translate': translate,
-    '.livelikeabavarian': livelikeabavarian,
-    '.listofcommands': listofcommands,
+    '/sayhi': sayhi,
+    '/fcbnews': bayernmuenchenfacts,
+    '/translate': translate,
+    '/bavarian': livelikeabavarian,
+    '/commands': listofcommands,
     # '.yodel': yodel
 }
 

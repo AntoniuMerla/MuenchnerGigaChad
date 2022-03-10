@@ -2,7 +2,7 @@ import discord
 import random
 import time
 import asyncio
-import requests
+# import requests
 import json
 import os
 from urllib.request import urlopen

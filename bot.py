@@ -6,14 +6,11 @@ import asyncio
 import json
 import os
 from urllib.request import urlopen
-#import redis
+# import redis
 import googletrans
 from gnews import GNews
-import youtube_dl
+#import youtube_dl
 from discord.ext import commands
-from dotenv import load_dotenv
-
-load_dotenv()
 
 client = discord.Client()
 
@@ -118,4 +115,4 @@ commands = {
 }
 
 # client.run(token)
-client.run(os.getenv('DISCORD_TOKEN'))
+client.run(os.environ.get('DISCORD_TOKEN'))

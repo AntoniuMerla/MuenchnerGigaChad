@@ -115,4 +115,4 @@ commands = {
 }
 
 # client.run(token)
-client.run(os.environ['DISCORD_TOKEN'])
+client.run(os.getenv('DISCORD_TOKEN'))

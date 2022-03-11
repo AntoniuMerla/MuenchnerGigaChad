@@ -8,7 +8,6 @@ from discord.ext import commands
 from discord import OptionChoice
 from discord import Option
 
-
 bot = commands.Bot(intents=discord.Intents.all(), help_command=None)
 
 

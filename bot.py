@@ -5,8 +5,8 @@ import constants
 import googletrans
 from gnews import GNews
 from discord.ext import commands
-from discord import OptionChoice
-from discord import Option
+from discord.commands import OptionChoice
+from discord.commands import Option
 
 bot = commands.Bot(intents=discord.Intents.all(), help_command=None)
 

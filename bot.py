@@ -11,11 +11,7 @@ from discord import Option
 bot = commands.Bot(intents=discord.Intents.all(), help_command=None)
 
 
-@bot.slash_command(
-    name='hi',
-    description="Greets the user.",
-    guild_ids=[os.environ.get('GUILD_ID')]
-)
+@bot.slash_command(name='hi', description="Greets the user.", guild_ids=[os.environ.get('GUILD_ID')])
 async def _sayhi(ctx: discord.ApplicationContext):
     await ctx.respond(random.choice(constants.GREETINGS))
 

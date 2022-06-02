@@ -42,7 +42,7 @@ async def _bayernmuenchenfacts(ctx: discord.ApplicationContext):
 )
 async def _translate(
     ctx: discord.ApplicationContext,
-    language: OptionChoice(value=["en", "de"]),
+    language: OptionChoice(language, value=["en", "de"]),
     text: Option(str, "Enter text to translate.")
 ):
     if language != "en" and language != "de":

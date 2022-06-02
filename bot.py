@@ -16,11 +16,7 @@ async def _sayhi(ctx: discord.ApplicationContext):
     await ctx.respond(random.choice(constants.GREETINGS))
 
 
-@bot.slash_command(
-    name='fcbnews',
-    description="Shows actual news of FC Bayern.",
-    guild_ids=[os.environ.get('GUILD_ID')]
-)
+@bot.slash_command(name='fcbnews', description="Shows actual news of FC Bayern.", guild_ids=[os.environ.get('GUILD_ID')])
 async def _bayernmuenchenfacts(ctx: discord.ApplicationContext):
     google_news = GNews(max_results=10)
     bayernmuenchen_news = google_news.get_news('Bayern Munich match, transfer')
@@ -35,16 +31,8 @@ async def _bayernmuenchenfacts(ctx: discord.ApplicationContext):
     await ctx.respond(embed=embed)
 
 
-@bot.slash_command(
-    name='translate',
-    description="Translates the message into the selected language.",
-    guild_ids=[os.environ.get('GUILD_ID')]
-)
-async def _translate(
-    ctx: discord.ApplicationContext,
-    language: OptionChoice(name="language", value=["en", "de"]),
-    text: Option(str, "Enter text to translate.")
-):
+@bot.slash_command(name='translate', description="Translates the message into the selected language.", guild_ids=[os.environ.get('GUILD_ID')])
+async def _translate(ctx: discord.ApplicationContext,language: OptionChoice(name='language', value=["en", "de"]), text: Option(str, "Enter text to translate.")):
     if language != "en" and language != "de":
         await ctx.respond("Sehe ich aus, als könnte ich Französisch sprechen?")
     else:
@@ -55,11 +43,7 @@ async def _translate(
         await ctx.respond(translated_text)
 
 
-@bot.slash_command(
-    name='bavarian',
-    description="Tells about bavarian life.",
-    guild_ids=[os.environ.get('GUILD_ID')]
-)
+@bot.slash_command(name='bavarian',description="Tells about bavarian life.",guild_ids=[os.environ.get('GUILD_ID')])
 async def _livelikeabavarian(ctx: discord.ApplicationContext):
     actual_list = list(constants.BAVARIAN_TO_DO_LIST)
     random_key = random.choice(actual_list)
@@ -69,11 +53,7 @@ async def _livelikeabavarian(ctx: discord.ApplicationContext):
     await ctx.respond(embed=embed)
 
 
-@bot.slash_command(
-    name="commands",
-    description="Sends all available commands.",
-    guild_ids=[os.environ.get('GUILD_ID')]
-)
+@bot.slash_command(name="commands", description="Sends all available commands.", guild_ids=[os.environ.get('GUILD_ID')])
 async def _help(ctx: discord.ApplicationContext):
     embed = discord.Embed(title=f'Available Commands:', description='\uFEFF',
                           colour=ctx.author.colour)

@@ -32,7 +32,7 @@ async def _bayernmuenchenfacts(ctx: discord.ApplicationContext):
 
 
 @bot.slash_command(name='translate', description="Translates the message into the selected language.", guild_ids=[os.environ.get('GUILD_ID')])
-async def _translate(ctx: discord.ApplicationContext,language: OptionChoice(name='language', value=["en", "de"]), text: Option(str, "Enter text to translate.")):
+async def _translate(ctx: discord.ApplicationContext,language: OptionChoice(value=["en", "de"]), text: Option(str, "Enter text to translate.")):
     if language != "en" and language != "de":
         await ctx.respond("Sehe ich aus, als könnte ich Französisch sprechen?")
     else:

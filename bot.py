@@ -18,16 +18,17 @@ async def _sayhi(ctx: discord.ApplicationContext):
 
 @bot.slash_command(name='fcbnews', description="Shows actual news of FC Bayern.", guild_ids=[os.environ.get('GUILD_ID')])
 async def _bayernmuenchenfacts(ctx: discord.ApplicationContext):
-    google_news = GNews(max_results=5)
+google_news = GNews(max_results=10)
     bayernmuenchen_news = google_news.get_news('Bayern Munich match, transfer')
-    randomised_url = bayernmuenchen_news[random.randint(0, 4)]['url']
+    randomised_url = bayernmuenchen_news[random.randint(0, 9)]['url']
     description = google_news.get_full_article(randomised_url).title
     embed = discord.Embed(title="Bayern Nachrichten!!!",
+                          url=randomised_url,
+                          # url="https://fcbayern.com/en/news",
                           description=description,
-                          color=ctx.author.color)
-    embed.add_field(name=randomised_url,value="")
-    embed.set_footer(text=f"{bot.user.name}",
-         icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/1200px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png")
+                          color=discord.Color.blue())
+    embed.set_thumbnail(
+        url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/1200px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png")
     await ctx.respond(embed=embed)
 
 

@@ -23,7 +23,8 @@ async def _bayernmuenchenfacts(ctx: discord.ApplicationContext):
     randomised_url = bayernmuenchen_news[random.randint(0, 9)]['url']
     description = google_news.get_full_article(randomised_url).title
     embed = discord.Embed(title="Bayern Nachrichten!!!",
-                          url=randomised_url,
+                          #url=randomised_url,
+                          url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/1200px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png",
                           description=description,
                           color=discord.Color.blue())
     embed.set_thumbnail(

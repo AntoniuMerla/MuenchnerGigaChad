@@ -18,7 +18,7 @@ async def _sayhi(ctx: discord.ApplicationContext):
 
 @bot.slash_command(name='fcbnews', description="Shows actual news of FC Bayern.", guild_ids=[os.environ.get('GUILD_ID')])
 async def _bayernmuenchenfacts(ctx: discord.ApplicationContext):
-google_news = GNews(max_results=10)
+    google_news = GNews(max_results=10)
     bayernmuenchen_news = google_news.get_news('Bayern Munich match, transfer')
     randomised_url = bayernmuenchen_news[random.randint(0, 9)]['url']
     description = google_news.get_full_article(randomised_url).title

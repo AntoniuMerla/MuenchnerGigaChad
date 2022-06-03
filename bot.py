@@ -18,13 +18,12 @@ async def _sayhi(ctx: discord.ApplicationContext):
 
 @bot.slash_command(name='fcbnews', description="Shows actual news of FC Bayern.", guild_ids=[os.environ.get('GUILD_ID')])
 async def _bayernmuenchenfacts(ctx: discord.ApplicationContext):
-    google_news = GNews(max_results=10)
+    google_news = GNews(max_results=5)
     bayernmuenchen_news = google_news.get_news('Bayern Munich match, transfer')
     randomised_url = bayernmuenchen_news[random.randint(0, 9)]['url']
     description = google_news.get_full_article(randomised_url).title
     embed = discord.Embed(title="Bayern Nachrichten!!!",
-                          #url=randomised_url,
-                          url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/1200px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png",
+                          url=randomised_url,
                           description=description,
                           color=discord.Color.blue())
     embed.set_thumbnail(

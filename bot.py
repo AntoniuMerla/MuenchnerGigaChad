@@ -20,7 +20,7 @@ async def _sayhi(ctx: discord.ApplicationContext):
 async def _bayernmuenchenfacts(ctx: discord.ApplicationContext):
     google_news = GNews(max_results=5)
     bayernmuenchen_news = google_news.get_news('Bayern Munich match, transfer')
-    randomised_url = bayernmuenchen_news[random.randint(0, 9)]['url']
+    randomised_url = bayernmuenchen_news[random.randint(0, 4)]['url']
     description = google_news.get_full_article(randomised_url).title
     embed = discord.Embed(title="Bayern Nachrichten!!!",
                           url=randomised_url,
